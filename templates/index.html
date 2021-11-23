@@ -1,0 +1,31 @@
+{% extends "_base.html" %}
+
+{% block content %}
+
+<div class="text-center">
+  <h1>Welcome Students!</h1>
+</div>
+
+<br>
+
+<form action="/" method="POST">
+  <div class="form-group">
+    <input name="nome" class="form-control input-lg" type="nome" placeholder="Digite o nome do aluno" required>
+    <input name="turma" class="form-control input-lg" type="turma" placeholder="Digite a turma" required>
+    <input name="nota" class="form-control input-lg" type="nota" placeholder="Digite a nota" required>
+  </div>
+  <input type="submit" class="btn btn-primary btn-lg btn-block" value="Submit">
+</form>
+
+<br>
+<hr>
+
+<div>
+  {% for aluno in alunos %}
+    <h4 class="well"><strong>{{aluno.nome}}</strong> - <em>{{aluno.data_postada.strftime('%Y-%m-%d')}}</em></h4>
+    <h4 class="well"><strong>{{aluno.turma}}</strong> - <em>{{aluno.data_postada.strftime('%Y-%m-%d')}}</em></h4>
+    <h4 class="well"><strong>{{aluno.nota}}</strong> - <em>{{aluno.data_postada.strftime('%Y-%m-%d')}}</em></h4>
+  {% endfor %}
+</div>
+
+{% endblock %}
